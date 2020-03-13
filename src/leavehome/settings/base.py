@@ -25,7 +25,7 @@ SECRET_KEY = '&)c)lw3sme3&@)4$t0dzyvrd#=jn5&zu&0$tqk3-!5#6h$+svg'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -94,12 +94,24 @@ WSGI_APPLICATION = 'leavehome.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#    }
+#}
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'leaveapp_data',
+        'USER': 'root',
+        'PASSWORD': 'abcd1234*',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
+
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
